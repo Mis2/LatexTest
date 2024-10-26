@@ -1,0 +1,21 @@
+name: Demo
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup latex
+        run: |
+          sudo apt-get install texlive-latex-base
+          sudo apt-get install texlive-fonts-recommended
+          sudo apt-get install texlive-fonts-extra
+          sudo apt-get install texlive-latex-extra
+      - name: Compile latex file
+        run: |
+          pdflatex test.tex
+      - name: Check file creation
+        run: |
+          ls text.pdf    
+
+          
