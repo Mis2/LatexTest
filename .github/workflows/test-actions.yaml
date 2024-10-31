@@ -14,8 +14,10 @@ jobs:
       - name: Compile latex file
         run: |
           pdflatex test.tex
-      - name: Check file creation
-        run: |
-          ls text.pdf    
+      - uses: actions/upload-artifact@v4
+        with:
+          name: test-pdf
+          path: test.pdf
+
 
           
